@@ -66,7 +66,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
     makeGpxFile()
     let url = NSURL(fileURLWithPath: "MapWalker.gpx")
     let folderUrl = url.deletingLastPathComponent
-    NSWorkspace.shared().open(folderUrl!)
+    NSWorkspace.shared.open(folderUrl!)
   }
 
   func updateCamera(mapInitialized:Bool = true) {
@@ -146,7 +146,7 @@ class ViewController: NSViewController, MKMapViewDelegate, CLLocationManagerDele
       self.postApplyGpxScriptTask()
     } catch {
       // do nothing
-      print("error writing file")
+      print("error writing file: \(error)")
     }
     makeGpxFileQueued = false
   }
